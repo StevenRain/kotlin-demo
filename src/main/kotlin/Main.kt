@@ -60,11 +60,27 @@ fun getPlateNumberInfo(bufferedImage: BufferedImage): PlateNumberData {
     }
 }
 
+fun writePlateNumber(plateNumber: String) {
+    val fileName = "bluedemo.jpg"
+    val outFileName = fileName.sub
+    val bufferedImage: BufferedImage = Thumbnails.of(fileName).scale(1.0).asBufferedImage()
+    val plateNumberData = getPlateNumberInfo(bufferedImage)
+
+    if(plateNumber.length < 2) {
+        return
+    }
+    val chinesePlateNumber = plateNumber.substring(0, 2).plus("·").plus(plateNumber.substring(2, plateNumber.length))
+    val charWidth = plateNumberData.width * 0.9 / chinesePlateNumber.length
+    val charHeight = plateNumberData.height * 0.75
+}
+
 fun main(args: Array<String>) {
     val fileName = "bluedemo.jpg"
     val bufferedImage: BufferedImage = Thumbnails.of(fileName).scale(1.0).asBufferedImage()
     val plateNumberData = getPlateNumberInfo(bufferedImage)
     println("${plateNumberData.width}, ${plateNumberData.height}, " +
-            "${plateNumberData.origin!!.originX}, ${plateNumberData.origin!!.originY}," +
+            "${plateNumberData.origin!!.originX}, ${plateNumberData.origin!!.originY}, " +
             "${plateNumberData.center.centerX}, ${plateNumberData.center.centerY}")
+
+    writePlateNumber("苏AL60R7")
 }
