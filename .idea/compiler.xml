@@ -9,10 +9,8 @@
         <module name="Kotlin-Demo" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Kotlin-Demo" options="" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="Kotlin-Demo" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
