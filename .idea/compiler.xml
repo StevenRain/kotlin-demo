@@ -9,8 +9,5 @@
         <module name="Kotlin-Demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Kotlin-Demo" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
